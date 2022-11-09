@@ -1,0 +1,46 @@
+{
+  "name": "arena-test-api",
+  "version": "1.0.0",
+  "main": "dist/src/server.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "prestart": "npm run build",
+    "start": "node dist/src/server.js",
+    "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' src/server.ts",
+    "devstart": "yarn dev",
+    "test": "mocha --config .mocharc.json --watch test/**/*.test.ts",
+    "deploy": "git push heroku main"
+  },
+  "engines": {
+    "node": "^18.12.0",
+    "yarn": "^1.22.19"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "web3": "^1.8.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
+    "@types/express": "^4.17.14",
+    "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.27.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.2",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.7.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4",
+    "web3-eth-contract": "^1.8.0",
+    "web3-utils": "^1.8.0"
+  }
+}
