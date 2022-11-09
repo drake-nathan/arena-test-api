@@ -5,6 +5,9 @@ import dotenv from 'dotenv';
 import router from './router';
 
 dotenv.config();
+const port = parseInt(process.env.PORT);
+
+if (!port) throw new Error('Port not defined, please define a port in .env file.');
 
 const app = express();
 
@@ -16,8 +19,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/', (req, res) => res.send('Matto API up and running.'));
 app.use('/route', router);
 
-const port = parseInt(process.env.PORT);
 const server = http.createServer(app);
-server.listen(port, () => console.info('Server listening on:'));
+
+server.listen(port, () => console.info('Server listening on port:', port));
 
 export default server;
