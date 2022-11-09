@@ -16,8 +16,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // routers
-app.get('/', (req, res) => res.send('Matto API up and running.'));
-app.use('/route', router);
+app.get('/', (req, res) => res.send('hello world'));
+app.use('/api', router);
 
 const server = http.createServer(app);
 

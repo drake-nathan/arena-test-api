@@ -1,0 +1,118 @@
+openapi: 3.0.3
+info:
+  title: Arena Technical Test API
+  version: 1.0.0
+
+servers:
+  - url: /api
+
+paths:
+  /:
+    get:
+      summary: test route to check if server running
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: string
+                example: 'hello world'
+  /latest-tx:
+    post:
+      summary: returns the latest transaction for a given wallet address on a given contract
+      requestBody:
+        required: true
+        content:
+          'application/x-www-form-urlencoded':
+            schema:
+              properties:
+                contract_address:
+                  type: string
+                wallet_address:
+                  type: string
+      responses:
+        202:
+          description: return
+        400:
+          description: bad request
+
+# these are the models for the json objects you will get back
+components:
+  schemas:
+    Token:
+      type: object
+      properties:
+        token_id:
+          type: number
+        name:
+          type: string
+        project_id:
+          type: number
+        project_name:
+          type: string
+        artist:
+          type: string
+        artist_address:
+          type: string
+        description_override: # if true, description field below is different from the otherwise umbrella 'description' that would be the same across all tokens in the project.
+          type: boolean
+        description:
+          type: string
+        collection_name:
+          type: string
+        aspect_ratio:
+          type: number
+        script_type:
+          type: string
+        dynamic_image:
+          type: boolean
+          description: toggle for image / image_data usage, per token # there are some projects I have in mind where all but one token have this set to false, but a single token in each project is set to true.
+        image: # when dynamic_image == false
+          type: string
+          description: image url or non-dynamic base64 encoded image data
+        image_data: # when dynamic_image == true
+          type: string
+          description: raw image data to be rendered on fly
+        animation_url:
+          type: string
+        generator_url:
+          type: string
+        website:
+          type: string
+        external_url:
+          type: string
+        token_hash:
+          type: string
+        static_nft:
+          type: boolean
+        license:
+          type: string
+        royalty_info:
+          type: object
+          properties:
+            artist_address:
+              type: string
+            additional_payee:
+              type: string
+            additional_payee_bps:
+              type: number
+            royalty_fee_by_id:
+              type: number
+        attributes:
+          type: array
+          items:
+            type: object
+            properties:
+              trait_type:
+                type: string
+              value:
+                type: string
+        custom_data:
+          type: string
+        transfer_count:
+          type: number
+        current_owner:
+          type: string
+        previous_owner:
+          type: string

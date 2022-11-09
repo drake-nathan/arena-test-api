@@ -17,7 +17,15 @@
     "consistent-return": "off",
     "no-return-assign": "off",
     "object-curly-newline": "off",
-    "no-restricted-syntax": "off"
+    "no-restricted-syntax": "off",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "variable",
+        "format": ["camelCase", "UPPER_CASE", "PascalCase", "snake_case"],
+        "leadingUnderscore": "allow"
+      }
+    ]
   },
   "settings": {
     "import/resolver": {
