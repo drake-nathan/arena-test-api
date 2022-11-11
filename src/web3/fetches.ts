@@ -14,3 +14,9 @@ export const fetchEvents = async (
 
   return tx;
 };
+
+export const getTx = async (web3: Web3, txHash: string) => {
+  const tx = await web3.eth.getTransaction(txHash);
+
+  return tx;
+};

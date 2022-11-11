@@ -5,9 +5,7 @@ import dotenv from 'dotenv';
 import router from './router';
 
 dotenv.config();
-const port = parseInt(process.env.PORT);
-
-if (!port) throw new Error('Port not defined, please define a port in .env file.');
+const port = parseInt(process.env.PORT) || 8080;
 
 const app = express();
 
