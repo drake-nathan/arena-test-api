@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { isAddress } from 'web3-utils';
-import { getWalletTxByContract } from '../etherscan-fetches';
+import { getWalletTxByContract } from '../etherscanFetches';
 
 export const handleMostTx = async (req: Request, res: Response) => {
   const { contract_address, wallets } = req.body;
