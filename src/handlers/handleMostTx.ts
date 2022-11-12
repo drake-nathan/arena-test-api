@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { isAddress } from 'web3-utils';
-import { getWalletTxByContract } from '../etherscanFetches';
+import { getWalletTransactions } from '../etherscan/fetches';
+import { EtherscanTx } from '../types';
 
 export const handleMostTx = async (req: Request, res: Response) => {
   const { contract_address, wallets } = req.body;
@@ -20,12 +21,24 @@ export const handleMostTx = async (req: Request, res: Response) => {
   }
 
   try {
-    const eachWalletsTransactions = await Promise.all(
-      wallets.map((wallet: string) =>
-        getWalletTxByContract(contract_address, wallet),
-      ),
+    const eachWalletsTransactions: EtherscanTx[][] = await Promise.all(
+      wallets.map((wallet: string) => getWalletTransactions(wallet)),
     );
-    // res.send(transactions);
+
+    const txCountByWallet = eachWalletsTransactions
+      .map((listOfTx, i) => {
+        const txCount = listOfTx.filter(
+          (tx) => tx.to === contract_address,
+        ).length;
+
+        return {
+          wallet: wallets[i],
+          txCount,
+        };
+      })
+      .sort((a, b) => b.txCount - a.txCount);
+
+    res.send(txCountByWallet);
   } catch (error) {
     console.error(error);
     res.status(500).send(error);

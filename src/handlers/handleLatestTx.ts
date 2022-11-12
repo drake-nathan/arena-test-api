@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { isAddress } from 'web3-utils';
-import { getWalletTxByContract } from '../etherscanFetches';
+import { getWalletTransactions } from '../etherscan/fetches';
+import { filterTxByContract, findLatestTx } from '../etherscan/helpers';
 
 export const handleLatestTx = async (req: Request, res: Response) => {
   const { contract_address, wallet_address } = req.body;
@@ -18,14 +19,9 @@ export const handleLatestTx = async (req: Request, res: Response) => {
   }
 
   try {
-    const transactions = await getWalletTxByContract(
-      contract_address,
-      wallet_address,
-    );
-
-    const latestTx = transactions.sort(
-      (a, b) => Number(b.timeStamp) - Number(a.timeStamp),
-    )[0];
+    const transactions = await getWalletTransactions(wallet_address);
+    const txByContract = filterTxByContract(transactions, contract_address);
+    const latestTx = findLatestTx(txByContract);
 
     res.send(latestTx);
   } catch (error) {

@@ -18,16 +18,35 @@
     "colId": "history",
     "containerId": "",
     "name": "localhost:8080/api/latest-tx",
-    "url": "localhost:8080/api/latest-tx",
+    "url": "localhost:8080/api/most-used-contract",
     "method": "POST",
     "sortNum": 0,
     "created": "2022-11-11T04:31:46.827Z",
-    "modified": "2022-11-11T04:31:47.433Z",
+    "modified": "2022-11-12T02:47:20.186Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"wallet_address\": \"0x56ee8bd11b5a385d3d533b4c2c6e37de78b2aafb\",\n  \"contract_address\": \"0x8ff1523091c9517bc328223d50b52ef450200339\"\n}",
+      "raw": "{\n  \"wallet_address\": \"0x56ee8bd11b5a385d3d533b4c2c6e37de78b2aafb\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "15110c43-f991-4d76-b982-a89b01493099",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:8080/api/latest-tx Copy",
+    "url": "localhost:8080/api/latest-tx",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-11-11T04:31:46.827Z",
+    "modified": "2022-11-12T02:47:01.274Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"wallet_address\": \"0x56ee8bd11b5a385d3d533b4c2c6e37de78b2aafb\",\n  \"contract_address\": \"0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2\"\n}",
       "form": []
     },
     "tests": []

@@ -16,7 +16,10 @@
         "ts-node/register",
         "${workspaceFolder}/test/**/*.test.ts"
       ],
-      "internalConsoleOptions": "openOnSessionStart"
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "PORT": "8081"
+      }
     }
   ]
 }

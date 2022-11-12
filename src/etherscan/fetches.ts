@@ -1,7 +1,7 @@
 import axios from 'axios';
 import dotenv from 'dotenv';
 import type { AbiItem } from 'web3-utils';
-import { EtherscanTx } from './types';
+import { EtherscanTx } from '../types';
 
 dotenv.config();
 
@@ -32,10 +32,7 @@ export const getAbi = async (contractAddress: string): Promise<AbiItem[]> => {
   }
 };
 
-export const getWalletTxByContract = async (
-  contractAddress: string,
-  walletAddress: string,
-) => {
+export const getWalletTransactions = async (walletAddress: string) => {
   const params = {
     module: 'account',
     action: 'txlist',
@@ -49,11 +46,5 @@ export const getWalletTxByContract = async (
 
   const walletTransactions = response.data.result as EtherscanTx[];
 
-  const txByContract = walletTransactions.filter(
-    (tx) =>
-      tx.to.toLowerCase() === contractAddress.toLowerCase() ||
-      tx.from.toLowerCase() === contractAddress.toLowerCase(),
-  );
-
-  return txByContract;
+  return walletTransactions;
 };

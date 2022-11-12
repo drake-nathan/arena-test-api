@@ -12,10 +12,6 @@
     "test": "mocha --config .mocharc.json --watch test/**/*.test.ts",
     "deploy": "git push heroku main"
   },
-  "engines": {
-    "node": "^18.12.0",
-    "yarn": "^1.22.19"
-  },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"

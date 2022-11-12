@@ -18,16 +18,35 @@
     "colId": "4e21d1ac-dd03-4f48-9b80-f570674cd17b",
     "containerId": "",
     "name": "Latest Transaction",
-    "url": "localhost:8080/api/latest-tx",
+    "url": "localhost:8080/api/most-tx",
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-11-11T04:34:59.382Z",
-    "modified": "2022-11-11T04:34:59.382Z",
+    "modified": "2022-11-12T04:03:22.418Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"wallet_address\": \"0x56ee8bd11b5a385d3d533b4c2c6e37de78b2aafb\",\n  \"contract_address\": \"0x8ff1523091c9517bc328223d50b52ef450200339\"\n}",
+      "raw": "{\n  \"contract_address\": \"0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2\",\n  \"wallets\": [\"0x56ee8bd11b5a385d3d533b4c2c6e37de78b2aafb\", \"0xdcae87821fa6caea05dbc2811126f4bc7ff73bd1\", \"0xd387a6e4e84a6c86bd90c158c6028a58cc8ac459\"]\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "9d9a1ca1-77ef-4071-9488-9494460be63f",
+    "colId": "4e21d1ac-dd03-4f48-9b80-f570674cd17b",
+    "containerId": "",
+    "name": "Most Used Wallet",
+    "url": "localhost:8080/api/most-used-contract",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-11-12T02:47:42.990Z",
+    "modified": "2022-11-12T02:47:42.990Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"wallet_address\": \"0x56ee8bd11b5a385d3d533b4c2c6e37de78b2aafb\"\n}",
       "form": []
     },
     "tests": []
