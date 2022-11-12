@@ -25,4 +25,4 @@ jobs:
       - name: API testing
         run: yarn test
         env:
-          DB_USER: ${{ secrets.ETHERSCAN_API_KEY }}
+          ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
