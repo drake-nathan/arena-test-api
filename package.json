@@ -9,7 +9,7 @@
     "start": "node dist/src/server.js",
     "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' src/server.ts",
     "devstart": "yarn dev",
-    "test": "mocha --config .mocharc.json --watch test/**/*.test.ts",
+    "test": "mocha --config .mocharc.json test/**/*.test.ts",
     "deploy": "git push heroku main"
   },
   "husky": {
