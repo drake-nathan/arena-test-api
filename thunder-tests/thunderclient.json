@@ -22,12 +22,12 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-11-11T04:34:59.382Z",
-    "modified": "2022-11-12T04:03:22.418Z",
+    "modified": "2022-11-13T22:40:37.594Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"contract_address\": \"0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2\",\n  \"wallets\": [\"0x56ee8bd11b5a385d3d533b4c2c6e37de78b2aafb\", \"0xdcae87821fa6caea05dbc2811126f4bc7ff73bd1\", \"0xd387a6e4e84a6c86bd90c158c6028a58cc8ac459\"]\n}",
+      "raw": "{\n  \"contract_address\": \"0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2\",\n  \"wallets\": [\n    \"0x56ee8bd11b5a385d3d533b4c2c6e37de78b2aafb\",\n    \"0xdcae87821fa6caea05dbc2811126f4bc7ff73bd1\",\n    \"0xd2a3f9C6FBE4C13D979898e603D64561264a6B35\",\n    \"0x8b90eb28dd723fd07f31d1a6c867dcca00f10f1f\"\n  ]\n}",
       "form": []
     },
     "tests": []

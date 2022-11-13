@@ -21,13 +21,26 @@ describe('/most-used-contract', () => {
       });
   });
 
-  it('should return a 404 with invalid wallet address', (done) => {
+  it('should return a 400 with invalid wallet address', (done) => {
     chai
       .request(server)
       .post('/api/most-used-contract')
       .send({
         wallet_address: 'not an address',
       })
+      .end((err, res) => {
+        if (err) done(err);
+        res.should.have.status(400);
+        res.text.should.be.a('string');
+        done();
+      });
+  });
+
+  it('should return a 400 with no wallet address', (done) => {
+    chai
+      .request(server)
+      .post('/api/most-used-contract')
+      .send({})
       .end((err, res) => {
         if (err) done(err);
         res.should.have.status(400);

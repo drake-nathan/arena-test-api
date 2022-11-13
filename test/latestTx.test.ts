@@ -22,7 +22,7 @@ describe('/latest-tx', () => {
       });
   });
 
-  it('should return a 404 with invalid wallet address', (done) => {
+  it('should return a 400 with invalid wallet address', (done) => {
     chai
       .request(server)
       .post('/api/latest-tx')
@@ -38,7 +38,7 @@ describe('/latest-tx', () => {
       });
   });
 
-  it('should return a 404 with invalid contract address', (done) => {
+  it('should return a 400 with invalid contract address', (done) => {
     chai
       .request(server)
       .post('/api/latest-tx')
@@ -46,6 +46,18 @@ describe('/latest-tx', () => {
         wallet_address: '0x56ee8bd11b5a385d3d533b4c2c6e37de78b2aafb',
         contract_address: 'not an address',
       })
+      .end((err, res) => {
+        if (err) done(err);
+        res.should.have.status(400);
+        res.text.should.be.a('string');
+        done();
+      });
+  });
+
+  it('should return a 400 with no body in request', (done) => {
+    chai
+      .request(server)
+      .post('/api/latest-tx')
       .end((err, res) => {
         if (err) done(err);
         res.should.have.status(400);
