@@ -4,8 +4,8 @@
 
 ### Requirements
 
-- [Node.js](https://nodejs.org/en/) (v18.12.0 - LTS)
-- [Yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable) (v1.22.19)
+- [Node.js](https://nodejs.org/en/)
+- [Yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable)
 
 ### Installation
 
@@ -21,7 +21,13 @@ ETHERSCAN_API_KEY=<YOUR_ETHERSCAN_API_KEY>
 
 1. Run `yarn test` to verify that setup went smoothly.
 2. Run `yarn dev` or `yarn devstart` to start the application.
-3. Open Postman or Thunder Client and setup a post request to `http://localhost:8080/` with the following body:
+3. If you have Thunder Client installed in VS Code, I have routes preset in `/thunder-tests`. You can import them and run them to test the application.
+4. Else, use your client of choice and point to `http://localhost:8080/`.
+
+### Routes
+
+- `GET /` - Returns `hello world`.
+- `POST /api/latest-tx` - Returns a list of transactions for a given address.
 
 ```json
 {
