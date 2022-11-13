@@ -18,6 +18,8 @@ describe('/latest-tx', () => {
         if (err) done(err);
         res.should.have.status(200);
         res.body.should.be.an('object');
+        res.body.should.have.property('hash');
+        res.body.should.have.property('to');
         done();
       });
   });
